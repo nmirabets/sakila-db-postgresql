@@ -6,6 +6,20 @@ This guide will help you successfully deploy the complete Sakila sample database
 
 ---
 
+## 🏗️ **Before You Begin**
+
+**First, you'll need to create a Supabase account and project:**
+
+1. Go to https://supabase.com/dashboard
+2. Sign up for a free account (if you don't have one)
+3. Create a new project
+4. Wait for your project to be fully provisioned
+
+Once your project is ready, you can proceed with the deployment steps below.
+
+
+---
+
 ## 📋 **Prerequisites**
 
 - ✅ **Supabase Project**: Created and accessible
