@@ -64,8 +64,8 @@ def get_supabase_data_df(sql_query):
         st.error(f"Database connection error: {str(e)}")
         return sql_query, pd.DataFrame()  # Return empty DataFrame on error
     
-if __name__ == "__main__":
-    query = "SELECT * FROM actor"
-    sql, df = get_supabase_data_df(query)
-    print(sql)
-    print(df)
+
+query = "SELECT * FROM actor"
+sql, df = get_supabase_data_df(query)
+print(sql)
+print(df)
