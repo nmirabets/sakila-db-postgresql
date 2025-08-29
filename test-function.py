@@ -67,5 +67,5 @@ def get_supabase_data_df(sql_query):
 
 query = "SELECT * FROM actor"
 sql, df = get_supabase_data_df(query)
-print(sql)
-print(df)
+st.write(sql)
+st.dataframe(df)

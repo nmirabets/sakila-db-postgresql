@@ -191,7 +191,9 @@ You should have these **9 files** ready for deployment:
 
 ---
 
-## ✅ **Verification Queries**
+## ✅ **Verification & Testing**
+
+### **Step 1: SQL Editor Verification**
 
 Run these queries in Supabase SQL Editor to verify successful deployment:
 
@@ -210,6 +212,52 @@ JOIN payment p ON r.rental_id = p.rental_id
 ORDER BY r.rental_date DESC
 LIMIT 5;
 ```
+
+### **Step 2: Python Connection Test**
+
+After successful SQL verification, test your database connection using Python:
+
+#### **2.1 Install Python Dependencies**
+```bash
+# Install required packages
+pip install -r requirements.txt
+```
+
+#### **2.2 Set Up Environment Variables**
+Create a `.env` file in your project root with your Supabase credentials:
+
+```env
+# Option 1: Use full connection string (recommended)
+SUPABASE_CONNECTION_STRING=postgresql://postgres:[your-password]@[your-host]:[port]/postgres
+
+# Option 2: Or use individual components
+SUPABASE_DB_URL=[your-supabase-db-url]
+SUPABASE_DB_PASSWORD=[your-password]
+```
+
+**To get your connection details:**
+1. Go to your Supabase project dashboard
+2. Navigate to **Settings** → **Database**
+3. Copy the connection string or individual components
+
+#### **2.3 Run the Test Function**
+```bash
+# Test database connection and query
+python test-function.py
+```
+
+**Expected Output:**
+```
+SELECT * FROM actor
+     actor_id first_name last_name      last_update
+0           1   PENELOPE   GUINESS  2006-02-15 09:34:33
+1           2       NICK  WAHLBERG  2006-02-15 09:34:33
+2           3         ED     CHASE  2006-02-15 09:34:33
+3           4   JENNIFER     DAVIS  2006-02-15 09:34:33
+...
+```
+
+✅ **Success**: If you see actor data displayed, your Sakila database is properly deployed and accessible!
 
 ---
 
@@ -250,8 +298,10 @@ LIMIT 5;
 1. **Copy-Paste Method**: Use copy-paste rather than file upload for best results
 2. **One File at a Time**: Complete each step before moving to the next
 3. **Verify Each Step**: Run verification queries after each major step
-4. **Safe to Restart**: If something fails, you can re-run from any step
-5. **Keep Files**: Maintain these files for future database refreshes
+4. **Test with Python**: Use `test-function.py` to verify your database connection works programmatically
+5. **Environment Setup**: Always create your `.env` file before running the Python test
+6. **Safe to Restart**: If something fails, you can re-run from any step
+7. **Keep Files**: Maintain these files for future database refreshes
 
 ---
 
